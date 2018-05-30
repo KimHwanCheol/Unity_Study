@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+	public GameManager gameManager;
 	public float speed = 10f;
 	private Rigidbody playerRigidbody;
 
@@ -17,7 +18,9 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	//화면이 한번 깜빡일때 한번 실행
 	void Update () {
-		
+		if(gameManager.isGameOver == true){
+			return;
+		}
 		//-1 ~ +1
 		//Horizontal 키보드 수평방향에 대응되는 키가 대응되어있음.
 		float inputX = Input.GetAxis("Horizontal");
